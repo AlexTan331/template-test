@@ -5,8 +5,11 @@ const twitterBtn = document.getElementById("twitter");
 const newQuoteBtn = document.getElementById("new-quote");
 const loader = document.getElementById("loader");
 
-let requestCounter = 0;
-let localQuotes = new Array();
+
+let localQuotes = [];
+let apiQuotes = [];
+const api = "https://type.fit/api/quotes";
+
 
 function showLoadingSpinner() {
   loader.hidden = false;
@@ -20,49 +23,44 @@ function hideLoadingSpinner() {
   }
 }
 
-function newQuote(data) {
+function newQuote() {
   showLoadingSpinner();
-  if (data.quoteAuthor === "") {
-    authorText.innerText = "Unknown";
+  let data;
+  if (!apiQuotes) {
+    data = localQuotes[Math.floor(Math.random() * localQuotes.length)];
   } else {
-    authorText.innerText = data.quoteAuthor;
+    data = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
   }
 
-  if (data.quoteText.length > 40) {
+  if (data.author === "") {
+    authorText.innerText = "Unknown";
+  } else {
+    authorText.innerText = data.author;
+  }
+
+  if (data.text.length > 40) {
     quoteText.classList.add("long-quote");
   } else {
     quoteText.classList.remove("long-quote");
   }
 
-  quoteText.innerText = data.quoteText;
+  quoteText.innerText = data.text;
 
   hideLoadingSpinner();
 }
 
-async function getQuoteFromAPI() {
-
+async function getQuotes() {
   showLoadingSpinner();
-  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-  const api =
-    "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json";
+
   try {
-
-    const response = await fetch(proxyUrl + api);
-    const data = await response.json();
-    newQuote(data);
-
+    const response = await fetch(api);
+    apiQuotes = await response.json();
   } catch (err) {
-    requestCounter++;
-
-    if (requestCounter < 10) {
-      getQuoteFromAPI();
-    } else {    //read random quote from local
-      const data = localQuotes[Math.floor(Math.random() * localQuotes.length)];
-      console.log("read from local" + data.quoteText);
-      newQuote(data);
-    }
+    getQuoteFromLocal();
     console.log(err);
   }
+
+  newQuote();
 }
 
 function getQuoteFromLocal() {
@@ -81,8 +79,7 @@ function tweetQuote() {
   window.open(twitterUrl, "_blank");
 }
 
-newQuoteBtn.addEventListener("click", getQuoteFromAPI);
+newQuoteBtn.addEventListener("click", newQuote);
 twitterBtn.addEventListener("click", tweetQuote);
 
-getQuoteFromLocal();
-getQuoteFromAPI();
+getQuotes();
