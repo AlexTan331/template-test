@@ -1,36 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project</title>
-    <link rel="icon" image="image/png" href="favicon.png">
+    <link rel="icon" image="image/png" href="favicon.png" />
     <!-- <link rel="icon" href="https://www.google.com/s2/u/0/favicons?domain=www.google.com"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-</head>
-<body>
-    <div class="quote-container" id="quote-container">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Dark Mode Switch -->
+    <div class="theme-switch-wrapper">
+      <span id="toggle-icon">
+        <span class="toggle-text">Light Mode</span>
+        <i class="fas fa-sun"></i>
+      </span>
+      <label class="theme-switch">
+        <input type="checkbox" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+    <!-- Navigation -->
+    <nav id="nav">
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <!-- Home Section -->
+    <section id="home">
+      <div class="title-group">
+        <h1>Customer Title here</h1>
+        <h2>Welcome to the Website</h2>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section id="about">
+      <h1>Undraw Illustrations</h1>
+      <div class="about-container">
+        <div class="image-container">
+          <h2>Web Innovation</h2>
+          <img
+            src="image/undraw_Preferences_re_light.svg"
+            alt="Preference"
+            id="image1"
+          />
+        </div>
+        <div class="image-container">
+          <h2>Problem Solving</h2>
+          <img
+            src="image/undraw_Segmentation_re_light.svg"
+            alt="Segementation"
+            id="image2"
+          />
+        </div>
+        <div class="image-container">
+          <h2>Data Structure</h2>
+          <img
+            src="image/undraw_Social_media_re_light.svg"
+            alt="Social Media"
+            id="image3"
+          />
+        </div>
+      </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects">
+      <h1>Projects Section</h1>
+      <div class="text-box" id="text-box">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+          voluptatibus doloremque, eligendi commodi velit ipsa praesentium nihil
+          saepe corrupti repudiandae! Recusandae doloribus porro beatae mollitia
+          voluptas autem impedit sunt repellat?
+        </p>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="social-icons">
+        <i class="fab fa-github"></i>
+        <i class="fab fa-linkedin-in"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-instagram"></i>
+      </div>
+    </section>
+    <section>
+      <div class="quote-container" id="quote-container">
         <!-- Quote -->
         <div class="quote-container">
-            <i class="fas fa-quote-left"></i>
-            <span class="quote" id="quote"></span>
+          <i class="fas fa-quote-left"></i>
+          <span class="quote" id="quote"></span>
         </div>
         <!-- Author -->
         <div class="quote-author">
-            <span id="author"></span>
+          <span id="author"></span>
         </div>
         <!-- Button -->
         <div class="button-container">
-            <button class="twitter-button" id="twitter" title="Twitter This!"><i class="fab fa-twitter"></i></button>
-            <button id="new-quote">New Quote</button>
+          <button class="twitter-button" id="twitter" title="Twitter This!">
+            <i class="fab fa-twitter" id="twitter-quote"></i>
+          </button>
+          <button id="new-quote">New Quote</button>
         </div>
-    </div>
+      </div>
+    </section>
     <!-- Loader -->
     <div class="loader" id="loader"></div>
-    
+
     <!-- Script -->
     <script src="script.js"></script>
-</body>
+    <script src="darkMode.js"></script>
+  </body>
 </html>

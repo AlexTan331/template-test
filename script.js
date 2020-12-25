@@ -5,11 +5,9 @@ const twitterBtn = document.getElementById("twitter");
 const newQuoteBtn = document.getElementById("new-quote");
 const loader = document.getElementById("loader");
 
-
 let localQuotes = [];
 let apiQuotes = [];
 const api = "https://type.fit/api/quotes";
-
 
 function showLoadingSpinner() {
   loader.hidden = false;
