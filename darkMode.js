@@ -23,13 +23,12 @@ function toggleLightDarkMode(isLight) {
   textBox.style.backgroundColor = isLight
     ? "rgb(0 0 0 / 50%)"
     : "rgb(255 255 255 / 50%)";
-  toggleIcon.children[0].textContent = isLight ? "Light Mode" : "Dark Mode";
 
   if (isLight) {
-    toggleIcon.children[1].classList.replace("fa-moon", "fa-sun");
+    toggleIcon.children[0].classList.replace("fa-moon", "fa-sun");
     imageMode(LIGHT_THEME);
   } else {
-    toggleIcon.children[1].classList.replace("fa-sun", "fa-moon");
+    toggleIcon.children[0].classList.replace("fa-sun", "fa-moon");
     imageMode(DARK_THEME);
   }
 }

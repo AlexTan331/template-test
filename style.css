@@ -134,6 +134,33 @@ button:active {
   .quote-text {
     font-size: 1.5rem;
   }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  .image-container {
+    margin-bottom: 2rem;
+  }
+
+  nav a:not(:last-child) {display: none; }
+  nav a.icon {
+    float: left;
+    display: block;
+  }
+
+  nav.responsive {position: relative;}
+  nav.responsive a.icon {
+    position: absolute;
+    left: 50%;
+    top: 0;
+  }
+
+  nav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
 
 section {
@@ -146,7 +173,7 @@ section {
 
 h1 {
   font-size: 100px;
-  margin-bottom: 0;
+  margin: 10px;
   font-family: Kaushan Script, sans-serif;
 }
 
@@ -166,6 +193,11 @@ nav {
   padding: 1rem;
   width: 100vw;
   background: rgb(255 255 255 / 50%);
+  overflow: hidden;
+}
+
+nav .icon {
+  display: none;
 }
 
 a {
@@ -174,6 +206,9 @@ a {
   text-decoration: none;
   border-bottom: 3px solid transparent;
   font-weight: bold;
+  float: left;
+  display: block;
+  text-align: center;
 }
 
 a:hover,
@@ -208,13 +243,13 @@ img {
 }
 
 .text-box {
-  width: 40%;
+  width: 50%;
   text-align: justify;
   background: rgb(0 0 0 / 50%);
   color: var(--on-primary);
   margin-top: 20px;
   border-radius: 10px;
-  padding: 30px;
+  padding: 20px;
 }
 
 p {
